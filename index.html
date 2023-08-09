@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Breed API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- The main container for the page content -->
+    <div class="container">
+        <h1>Cat Breeds Information</h1>
+        <!-- Container for displaying cat breed information -->
+        <div id="breedsList" class="card"></div>
+    </div>
+
+    <script>
+        // Fetch data from the Cat API using the provided API key
+        fetch(
+            "https://api.thecatapi.com/v1/breeds",
+            {
+                headers: {
+                    'x-api-key': 'live_JOJB1R7E7IA6CvUbEY4t01ieg0laBcocafFDAsA2YbTyDffLeoW0x6pXCC0x9glY',
+                }
+            })
+            .then(response => response.json()) // Convert response to JSON
+            .then(data => {
+                // Get the container where breed information will be displayed
+                const breedsListDiv = document.getElementById('breedsList');
+                // Loop through each breed in the fetched data
+                data.forEach(breed => {
+                    // Create a new div element to display breed information
+                    const breedInfo = document.createElement('div');
+                    breedInfo.innerHTML = `
+                        <!-- Display breed name -->
+                        <h2>${breed.name}</h2>
+                        <!-- Display origin -->
+                        <p>Origin: ${breed.origin}</p>
+                        <!-- Display temperament -->
+                        <p>Temperament: ${breed.temperament}</p>
+                        <!-- Display description -->
+                        <p>Description: ${breed.description}</p>
+                        <!-- Display life span -->
+                        <p>Life Span: ${breed.life_span}</p>
+                        <!-- Display breed image with alt text -->
+                        <img src="${breed.image.url}" alt="${breed.name}">
+                        <!-- Horizontal line to separate breed info -->
+                        <hr>
+                    `;
+                    // Add the breed information div to the container
+                    breedsListDiv.appendChild(breedInfo);
+                });
+            })
+            .catch(err => {
+                // Display an error message if there's an issue with the fetch
+                console.error(err);
+            });
+    </script>
+</body>
+</html>

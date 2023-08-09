@@ -1,0 +1,91 @@
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    margin-top: 15px;
+    max-height: 150px; 
+    transition: transform 0.2s ease-in-out;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+.separator {
+    border-top: 2px solid #ddd;
+    margin: 30px 0;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+
+.card:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.card h2 {
+    color: #e74c3c; 
+}
+
+.button {
+    background-color: #2ecc71; 
+}
+
+.button:hover {
+    background-color: #27ae60; 
+}
